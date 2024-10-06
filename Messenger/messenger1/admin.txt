@@ -1,0 +1,4 @@
+admin
+hello
+nepali
+english ho ni ma!

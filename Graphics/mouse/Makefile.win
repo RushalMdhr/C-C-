@@ -1,0 +1,31 @@
+# Project: mouse
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = mouse.o "graphics\ type.o"
+LINKOBJ  = mouse.o "graphics type.o"
+LIBS     = -L"E:/RUSHAL's/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -lbgi -lgdi32 -lcomdlg32 -luuid -loleaut32 -lole32 -m32
+INCS     = -I"E:/RUSHAL's/Dev-Cpp/MinGW64/include" -I"E:/RUSHAL's/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/RUSHAL's/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"E:/RUSHAL's/Dev-Cpp/MinGW64/include" -I"E:/RUSHAL's/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/RUSHAL's/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"E:/RUSHAL's/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = mouse.exe
+CXXFLAGS = $(CXXINCS) -m32
+CFLAGS   = $(INCS) -m32
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+mouse.o: mouse.cpp
+	$(CPP) -c mouse.cpp -o mouse.o $(CXXFLAGS)
+
+"graphics\ type.o": graphics\ type.cpp
+	$(CPP) -c "graphics type.cpp" -o "graphics type.o" $(CXXFLAGS)

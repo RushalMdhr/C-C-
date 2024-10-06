@@ -1,0 +1,37 @@
+# Project: CarAnimation
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = CarAnimationC++.o F1.o CarAnimationlabsheet.o mouse.o
+LINKOBJ  = CarAnimationC++.o F1.o CarAnimationlabsheet.o mouse.o
+LIBS     = -L"E:/RUSHAL's/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -lbgi -lgdi32 -lcomdlg32 -luuid -loleaut32 -lole32 -m32
+INCS     = -I"E:/RUSHAL's/Dev-Cpp/MinGW64/include" -I"E:/RUSHAL's/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/RUSHAL's/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"E:/RUSHAL's/Dev-Cpp/MinGW64/include" -I"E:/RUSHAL's/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/RUSHAL's/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"E:/RUSHAL's/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = CarAnimation.exe
+CXXFLAGS = $(CXXINCS) -m32
+CFLAGS   = $(INCS) -m32
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+CarAnimationC++.o: CarAnimationC++.cpp
+	$(CPP) -c CarAnimationC++.cpp -o CarAnimationC++.o $(CXXFLAGS)
+
+F1.o: F1.cpp
+	$(CPP) -c F1.cpp -o F1.o $(CXXFLAGS)
+
+CarAnimationlabsheet.o: CarAnimationlabsheet.cpp
+	$(CPP) -c CarAnimationlabsheet.cpp -o CarAnimationlabsheet.o $(CXXFLAGS)
+
+mouse.o: mouse.cpp
+	$(CPP) -c mouse.cpp -o mouse.o $(CXXFLAGS)
